@@ -4,16 +4,18 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "watch": "nodemon ./start.js"
     },
     "keywords": [],
     "author": "",
     "license": "ISC",
     "dependencies": {
+        "@prettier/plugin-pug": "^1.1.0",
         "eslint-config-prettier": "^6.7.0",
         "eslint-plugin-prettier": "^3.1.1",
         "express": "^4.17.1",
-        "prettier": "^1.19.1"
+        "prettier": "^1.19.1",
+        "pug": "^2.0.4"
     },
     "devDependencies": {
         "eslint": "^6.7.2",
@@ -32,6 +34,10 @@
         "*.js": [
             "prettier --write",
             "eslint --fix",
+            "git add"
+        ],
+        "*.pug": [
+            "prettier --write",
             "git add"
         ]
     }
