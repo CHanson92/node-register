@@ -1,8 +1,11 @@
-form(action='.', method='POST')
-    label(for='name') Name:
-    input#name(type='text', name='name')
+extends layout
 
-    label(for='email') Email:
-    input#email(type='email', name='email')
+block content
+    form(action='.', method='POST')
+        label(for='name') Name:
+        input#name(type='text', name='name')
 
-    input(type='submit', value='Submit')
+        label(for='email') Email:
+        input#email(type='email', name='email')
+
+        input(type='submit', value='Submit')
