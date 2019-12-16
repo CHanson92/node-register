@@ -14,7 +14,6 @@ app.use(
         /* Options */
         src: path.join(__dirname, 'public/scss'),
         dest: path.join(__dirname, 'public'),
-        debug: true,
         outputStyle: 'compressed',
         sourceMap: true,
     })

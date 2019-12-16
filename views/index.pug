@@ -1,14 +1,22 @@
 extends layout
 
 block content
+    a(href='/') Home
     if registrations.length
         table
             tr
+                th Id
                 th Name
                 th Email
+                th Update Email
+                th Delete
             each registration in registrations
                 tr
+                    td= registration.__v
                     td= registration.name
                     td= registration.email
+                    td
+                        form(action='/delete', method='POST')
+                            button(type='submit', value=registration.__v) Delete
     else
         p No registrations yet :(

@@ -1,1 +1,10 @@
 @import '_mixins';
+
+table {
+    @include table;
+}
+
+p {
+    margin-top: 2em;
+    text-align: center;
+}

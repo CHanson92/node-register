@@ -3,6 +3,8 @@ extends layout
 block content
     - data = data || {};
 
+    a(href='/registrations') Admin area
+
     if errors
         ul
             each error in errors

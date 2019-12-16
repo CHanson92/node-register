@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
@@ -8,7 +9,10 @@ const router = express.Router();
 const Registration = mongoose.model('Registration');
 
 router.get('/', (req, res) => {
-    res.render('form', { title: 'Registration form' });
+    res.render('form', {
+        title: 'Registration form',
+        header: 'Please sign up here',
+    });
 });
 
 router.post(
@@ -29,14 +33,18 @@ router.post(
             registration
                 .save()
                 .then(() => {
-                    res.send('Thank you for your registration!');
+                    res.render('registered', {
+                        title: 'Registered',
+                        header: 'App',
+                    });
                 })
                 .catch(() => {
-                    res.send('Sorry! Something went wrong.');
+                    res.render('404', { title: '404 Error' });
                 });
         } else {
             res.render('form', {
                 title: 'Registration form',
+                header: 'Please sign up here',
                 errors: errors.array(),
                 data: req.body,
             });
@@ -53,12 +61,23 @@ router.get('/registrations', auth.connect(basic), (req, res) => {
         .then(registrations => {
             res.render('index', {
                 title: 'Listing registrations',
+                header: 'Admin Area',
                 registrations,
             });
         })
         .catch(() => {
-            res.send('Sorry! Something went wrong.');
+            res.render('404', { title: '404 Error', header: '404 Error' });
         });
+});
+
+router.post('/delete', (req, res) => {
+    try {
+        const id = req.body.__v;
+        Registration.deleteOne(id).exec();
+        res.redirect('/registrations');
+    } catch (error) {
+        res.render('404', { title: '404 Error', header: '404 Error' });
+    }
 });
 
 module.exports = router;

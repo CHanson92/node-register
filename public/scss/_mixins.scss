@@ -1,0 +1,84 @@
+@mixin body {
+    background: #00072d;
+    color: #a6e1fa;
+}
+
+@mixin h1 {
+    text-align: center;
+    font-size: 5em;
+}
+
+@mixin admin {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0.5em;
+    font-size: 2em;
+    text-decoration: none;
+    color: #a6e1fa;
+
+    :active,
+    :focus {
+        color: #a6e1fa;
+    }
+}
+
+@mixin errors {
+    margin: 1em;
+    text-align: center;
+    font-size: 1.5em;
+    color: red;
+}
+
+@mixin form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 3em;
+
+    label,
+    input {
+        margin-bottom: 0.5em;
+        font-size: 1.5em;
+    }
+
+    input {
+        padding: 0.5em;
+        border-radius: 1em;
+        text-align: center;
+        border: none;
+        background: #0e6ba8;
+        color: #a6e1fa;
+    }
+
+    input[type='submit'] {
+        font-size: 1.25em;
+        border: none;
+        background: none;
+        color: #a6e1fa;
+    }
+}
+
+@mixin table {
+    display: flex;
+    justify-content: center;
+    margin-top: 2em;
+    font-size: 1.25em;
+
+    th {
+        font-weight: bold;
+    }
+
+    th,
+    td {
+        padding: 1em;
+        border: 1px solid white;
+    }
+
+    td {
+        form {
+            display: inherit;
+            margin-top: inherit;
+        }
+    }
+}
