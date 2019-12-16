@@ -1,0 +1,13 @@
+{
+	"version": 3,
+	"file": "styles.css",
+	"sources": [
+		"scss/styles.scss",
+		"scss/layout.scss",
+		"scss/_mixins.scss",
+		"scss/form.scss",
+		"scss/index.scss"
+	],
+	"names": [],
+	"mappings": "AAIA,AAAA,IAAI,AAAC,CACD,UAAU,CAAE,IAAI,CACnB"
+}

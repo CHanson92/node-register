@@ -4,22 +4,15 @@ block content
     - data = data || {};
 
     if errors
-        ul.my-errors
+        ul
             each error in errors
                 li= error.msg
 
-    form.form-registration(action='.', method='POST')
+    form(action='.', method='POST')
         label(for='name') Name:
-        input#name.form-control(type='text', name='name', value=data.name)
+        input#name(type='text', name='name', value=data.name)
 
         label(for='email') Email:
-        input#email.form-control(
-            type='email',
-            name='email',
-            value=data.email
-        )
+        input#email(type='email', name='email', value=data.email)
 
-        input.btn.btn-lg.btn-primary.btn-block(
-            type='submit',
-            value='Submit'
-        )
+        input(type='submit', value='Submit')
