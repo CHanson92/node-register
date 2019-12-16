@@ -8,8 +8,6 @@ block content
                 th Id
                 th Name
                 th Email
-                th Update Email
-                th Delete
             each registration in registrations
                 tr
                     td= registration.__v
@@ -17,6 +15,6 @@ block content
                     td= registration.email
                     td
                         form(action='/delete', method='POST')
-                            button(type='submit', value=registration.__v) Delete
+                            button(type='submit', value=registration.__v) X
     else
         p No registrations yet :(
